@@ -1,0 +1,25 @@
+group 'jp.gr.java_conf.future_ys.selenium.node.automate'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = 'Test'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
+    testCompile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '2.41.0'
+    // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-chrome-driver
+    testCompile group: 'org.seleniumhq.selenium', name: 'selenium-chrome-driver', version: '3.9.1'
+}
+
+test {
+    systemProperty "webdriver.chrome.driver", System.getProperty("./lib/chromedriver")
+}
